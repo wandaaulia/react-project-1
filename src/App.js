@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './LatTours/Home'
+import CarouselMenu from './LatTours/CarouselMenu'
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar, Container, Nav} from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> 
+    <div className="App"> 
+
+      <Navbar bg="dark" variant="dark">
+      <Container>
+      <Navbar.Brand> The Tour </Navbar.Brand>
+      <Nav className="justify-content-end">
+        <Nav.Link> <Link to="/" style={{color:"white", textDecoration:"none"}}> Home  </Link>  </Nav.Link>
+      </Nav>
+      </Container> 
+    </Navbar>
+
+    <CarouselMenu /> 
+
+
+
+     <div className="content"> 
+      <Routes> 
+      <Route path="/" element={<Home />} /> 
+       </Routes>    
+      </div>
+      </div>
+    </Router>
   );
 }
 
